@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe</title>
+  <meta name="description" content="Permainan Tic Tac Toe dengan mod 2 pemain dan lawan komputer." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127918;</text></svg>" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1 class="app__title">Tic&nbsp;Tac&nbsp;Toe</h1>
+      <p class="app__subtitle">Susun tiga dalam satu barisan untuk menang</p>
+    </header>
+
+    <!-- Papan skor -->
+    <section class="scoreboard" aria-label="Papan skor">
+      <div class="score score--x">
+        <span class="score__label" id="labelX">Pemain X</span>
+        <span class="score__value" id="scoreX">0</span>
+      </div>
+      <div class="score score--draw">
+        <span class="score__label">Seri</span>
+        <span class="score__value" id="scoreDraw">0</span>
+      </div>
+      <div class="score score--o">
+        <span class="score__label" id="labelO">Pemain O</span>
+        <span class="score__value" id="scoreO">0</span>
+      </div>
+    </section>
+
+    <!-- Status permainan -->
+    <p class="status" id="status" role="status" aria-live="polite">Giliran Pemain X</p>
+
+    <!-- Papan permainan -->
+    <div class="board" id="board" role="group" aria-label="Papan Tic Tac Toe">
+      <!-- Sel dijana oleh script.js -->
+      <svg class="board__strike" id="strike" viewBox="0 0 300 300" aria-hidden="true">
+        <line id="strikeLine" x1="0" y1="0" x2="0" y2="0" />
+      </svg>
+    </div>
+
+    <!-- Tindakan -->
+    <div class="actions">
+      <button type="button" class="btn btn--primary" id="btnRestart">Main Semula</button>
+      <button type="button" class="btn btn--ghost" id="btnResetScore">Reset Skor</button>
+    </div>
+
+    <!-- Tetapan -->
+    <section class="settings" aria-label="Tetapan permainan">
+      <div class="setting">
+        <span class="setting__label">Mod</span>
+        <div class="segmented" role="radiogroup" aria-label="Mod permainan">
+          <button type="button" class="segmented__item is-active" data-mode="ai" role="radio" aria-checked="true">Lawan Komputer</button>
+          <button type="button" class="segmented__item" data-mode="pvp" role="radio" aria-checked="false">2 Pemain</button>
+        </div>
+      </div>
+
+      <div class="setting" id="settingDifficulty">
+        <span class="setting__label">Kesukaran</span>
+        <div class="segmented" role="radiogroup" aria-label="Tahap kesukaran">
+          <button type="button" class="segmented__item" data-difficulty="mudah" role="radio" aria-checked="false">Mudah</button>
+          <button type="button" class="segmented__item" data-difficulty="sederhana" role="radio" aria-checked="false">Sederhana</button>
+          <button type="button" class="segmented__item is-active" data-difficulty="mustahil" role="radio" aria-checked="true">Mustahil</button>
+        </div>
+      </div>
+
+      <div class="setting" id="settingSide">
+        <span class="setting__label">Anda main sebagai</span>
+        <div class="segmented" role="radiogroup" aria-label="Pilih simbol anda">
+          <button type="button" class="segmented__item is-active" data-side="X" role="radio" aria-checked="true">X <small>(mula dulu)</small></button>
+          <button type="button" class="segmented__item" data-side="O" role="radio" aria-checked="false">O</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="app__footer">
+      <p>Tip: guna kekunci <kbd>1</kbd>–<kbd>9</kbd> untuk main, <kbd>R</kbd> untuk main semula.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
